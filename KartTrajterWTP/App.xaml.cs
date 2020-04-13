@@ -34,12 +34,12 @@ namespace KartTrajterWTP
             // register a singleton using Container.RegisterType<IInterface, Type>(new ContainerControlledLifetimeManager());
             base.ConfigureContainer();
             var identityService = new IdentityService();
-            var microsoftGraphService = new MicrosoftGraphService();
+            //var microsoftGraphService = new MicrosoftGraphService();
             var userDataService = new UserDataService(identityService, microsoftGraphService);
             Container.RegisterType<IToastNotificationsService, ToastNotificationsService>(new ContainerControlledLifetimeManager());
             Container.RegisterInstance<IResourceLoader>(new ResourceLoaderAdapter(new ResourceLoader()));
             Container.RegisterInstance<IIdentityService>(identityService);
-            Container.RegisterInstance<IMicrosoftGraphService>(microsoftGraphService);
+            //Container.RegisterInstance<IMicrosoftGraphService>(microsoftGraphService);
             Container.RegisterInstance<IUserDataService>(userDataService);
             Container.RegisterType<ISampleDataService, SampleDataService>();
         }
